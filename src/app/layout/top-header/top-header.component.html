@@ -1,0 +1,41 @@
+<header class="top-header">
+  <div class="top-header__brand">
+    <button
+      type="button"
+      class="icon-button mobile-menu-button"
+      aria-label="Open Explorer menu"
+      aria-controls="portfolio-explorer"
+      [attr.aria-expanded]="explorerOpen()"
+      (click)="menuToggle.emit()"
+    >
+      <i class="bi bi-list" aria-hidden="true"></i>
+    </button>
+    <div class="brand-copy">
+      <strong>{{ profile.name }}</strong>
+      <span>{{ profile.subtitle }}</span>
+    </div>
+  </div>
+
+  <nav class="desktop-menu" aria-label="Application menu">
+    @for (label of menuLabels; track label) {
+      <span class="desktop-menu__item">{{ label }}</span>
+    }
+  </nav>
+
+  <div class="header-search" aria-label="Decorative portfolio search">
+    <i class="bi bi-search" aria-hidden="true"></i>
+    <span>Search anything...</span>
+    <kbd>Ctrl K</kbd>
+  </div>
+
+  <nav class="header-socials" aria-label="Social profiles">
+    @for (link of socialLinks; track link.platform) {
+      <a [href]="link.url" target="_blank" rel="noopener noreferrer" [attr.aria-label]="link.label">
+        <i class="bi {{ link.icon }}" aria-hidden="true"></i>
+        <span>{{ link.label }}</span>
+      </a>
+    }
+  </nav>
+
+  <span class="avatar-badge" aria-label="Ivee Jintalan initials">{{ profile.initials }}</span>
+</header>

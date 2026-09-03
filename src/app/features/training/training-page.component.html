@@ -1,0 +1,71 @@
+<div class="detail-page training-page">
+  <header class="page-intro">
+    <p class="code-comment">// Continuous Learning</p>
+    <h1>Completed Training</h1>
+    <p>Courses, bootcamps, and specializations completed to strengthen my development skills.</p>
+  </header>
+
+  <div class="summary-strip" aria-label="Completed training summary">
+    <div>
+      <i class="bi bi-check-circle" aria-hidden="true"></i
+      ><strong>{{ completedTraining.length }}</strong
+      ><span>Completed</span>
+    </div>
+    <div>
+      <i class="bi bi-bank" aria-hidden="true"></i><strong>{{ providerCount }}</strong
+      ><span>Providers</span>
+    </div>
+  </div>
+
+  <section class="training-card-grid" aria-label="Completed training">
+    @for (item of completedTraining; track item.id) {
+      <article class="training-card">
+        <div class="training-card__heading">
+          @if (item.badgeImageUrl; as badgeImageUrl) {
+            <img
+              class="issuer-visual issuer-visual--image"
+              [src]="badgeImageUrl"
+              [alt]="item.provider + ' badge'"
+              loading="lazy"
+              decoding="async"
+            />
+          } @else {
+            <span class="issuer-visual" [title]="item.provider" aria-hidden="true">
+              <i class="bi {{ item.issuerIcon }}"></i>
+            </span>
+          }
+          <div>
+            <span class="credential-type">{{ item.type }}</span>
+            <h2>{{ item.title }}</h2>
+            <p>{{ item.provider }}</p>
+          </div>
+          <span class="completed-badge"><i class="bi bi-check-circle"></i>Completed</span>
+        </div>
+
+        <p class="training-card__description">{{ item.description }}</p>
+
+        <div class="badge-list" aria-label="Skills gained">
+          @for (skill of item.skills; track skill) {
+            <span>{{ skill }}</span>
+          }
+        </div>
+
+        @if (item.credentialId) {
+          <p class="credential-id"><span>Credential ID</span> {{ item.credentialId }}</p>
+        }
+
+        <footer>
+          <small
+            ><i class="bi bi-calendar3" aria-hidden="true"></i>Completed
+            {{ item.completedDate }}</small
+          >
+          @if (item.credentialUrl) {
+            <a [href]="item.credentialUrl" target="_blank" rel="noopener noreferrer">
+              View credential <i class="bi bi-box-arrow-up-right"></i>
+            </a>
+          }
+        </footer>
+      </article>
+    }
+  </section>
+</div>

@@ -1,0 +1,61 @@
+<div class="detail-page experience-page">
+  <header class="page-intro">
+    <p class="code-comment">// Professional Journey</p>
+    <h1>Experience</h1>
+    <p class="page-intro__accent">
+      Roles, responsibilities, and technologies that have shaped my work.
+    </p>
+  </header>
+
+  <section class="timeline" aria-label="Professional experience">
+    @for (item of experience; track item.id) {
+      <article class="timeline-card">
+        <span class="timeline-marker" aria-hidden="true">
+          <i
+            class="bi {{
+              item.position.toLowerCase().includes('trainee') ||
+              item.position.toLowerCase().includes('intern')
+                ? 'bi-mortarboard'
+                : 'bi-briefcase'
+            }}"
+          ></i>
+        </span>
+        <div class="timeline-card__heading">
+          <div>
+            <h2>{{ item.position }}</h2>
+            <p class="panel-accent">{{ item.company }}</p>
+          </div>
+          @if (item.current) {
+            <span class="current-badge">Current role</span>
+          }
+        </div>
+        <p class="meta-row">
+          <span
+            ><i class="bi bi-calendar3" aria-hidden="true"></i>{{ item.startDate }} –
+            {{ item.current ? 'Present' : item.endDate }}</span
+          >
+          @if (item.location) {
+            <span><i class="bi bi-geo-alt" aria-hidden="true"></i>{{ item.location }}</span>
+          }
+        </p>
+        @if (item.summary) {
+          <p class="timeline-summary">{{ item.summary }}</p>
+        }
+        <h3 class="detail-section-label">Key Responsibilities</h3>
+        <ul class="responsibility-list">
+          @for (responsibility of item.responsibilities; track responsibility) {
+            <li>{{ responsibility }}</li>
+          }
+        </ul>
+        @if (item.technologies.length) {
+          <h3 class="detail-section-label">Technologies</h3>
+          <div class="badge-list">
+            @for (technology of item.technologies; track technology) {
+              <span>{{ technology }}</span>
+            }
+          </div>
+        }
+      </article>
+    }
+  </section>
+</div>

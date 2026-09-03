@@ -1,0 +1,36 @@
+<div class="app-shell">
+  <app-top-header [explorerOpen]="explorerOpen()" (menuToggle)="toggleExplorer()" />
+
+  <div class="shell-workspace">
+    <app-explorer-sidebar
+      [class.is-open]="explorerOpen()"
+      (navigationSelected)="closeExplorer()"
+      (dismiss)="closeExplorer()"
+    />
+
+    @if (explorerOpen()) {
+      <button
+        type="button"
+        class="drawer-backdrop"
+        aria-label="Close Explorer menu"
+        (click)="closeExplorer()"
+      ></button>
+    }
+
+    <section class="editor-column" aria-label="Portfolio editor">
+      <app-editor-toolbar />
+      <app-editor-tabs />
+
+      <div #routeView class="editor-route-view" [class.about-route]="isAboutRoute()">
+        <app-line-number-gutter />
+        <main class="route-content" id="main-content">
+          <router-outlet />
+        </main>
+      </div>
+    </section>
+
+    <app-right-sidebar />
+  </div>
+
+  <app-status-bar />
+</div>

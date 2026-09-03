@@ -1,0 +1,48 @@
+<article class="project-card" [class.project-card--compact]="compact()">
+  <div class="project-card__heading">
+    <span class="project-card__icon"><i class="bi {{ icon() }}" aria-hidden="true"></i></span>
+    <div>
+      <h3>{{ compact() ? project().shortTitle || project().title : project().title }}</h3>
+      <div class="badge-list" aria-label="Technologies used">
+        @for (technology of project().technologies; track technology) {
+          <span>{{ technology }}</span>
+        }
+      </div>
+    </div>
+  </div>
+  @if (!compact() && (project().dateRange || project().associatedWith)) {
+    <p class="project-card__meta">
+      @if (project().dateRange) {
+        <span><i class="bi bi-calendar3" aria-hidden="true"></i>{{ project().dateRange }}</span>
+      }
+      @if (project().associatedWith) {
+        <span
+          ><i
+            class="bi"
+            [class.bi-lock-fill]="project().confidential"
+            [class.bi-mortarboard]="!project().confidential"
+            aria-hidden="true"
+          ></i
+          >{{ project().associatedWith }}</span
+        >
+      }
+    </p>
+  }
+  <p>
+    {{ compact() ? project().shortDescription || project().description : project().description }}
+  </p>
+  @if (project().githubUrl || project().liveUrl) {
+    <div class="project-card__links">
+      @if (project().githubUrl) {
+        <a [href]="project().githubUrl" target="_blank" rel="noopener noreferrer">
+          <i class="bi bi-github" aria-hidden="true"></i> GitHub
+        </a>
+      }
+      @if (project().liveUrl) {
+        <a [href]="project().liveUrl" target="_blank" rel="noopener noreferrer">
+          <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> Live Demo
+        </a>
+      }
+    </div>
+  }
+</article>

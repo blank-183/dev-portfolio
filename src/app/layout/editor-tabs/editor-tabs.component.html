@@ -1,0 +1,14 @@
+<nav class="editor-tabs" aria-label="Open portfolio files">
+  @for (item of navItems; track item.route) {
+    <a
+      [routerLink]="item.route"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      ariaCurrentWhenActive="page"
+    >
+      <span>{{ item.fileName }}</span>
+      <span class="tab-close" aria-hidden="true">×</span>
+    </a>
+  }
+  <span class="new-tab" aria-hidden="true"><i class="bi bi-plus-lg"></i></span>
+</nav>

@@ -1,0 +1,167 @@
+<div class="about-page">
+  <section class="about-hero" aria-labelledby="about-title">
+    <div class="profile-photo">
+      @if (profile.photoUrl; as photoUrl) {
+        <img [src]="photoUrl" [alt]="'Portrait of ' + profile.name" decoding="async" />
+      } @else {
+        <i class="bi bi-person-fill" aria-hidden="true"></i>
+        <span>{{ profile.initials }}</span>
+      }
+    </div>
+    <div class="about-hero__copy">
+      <p class="code-comment">// About Me</p>
+      <div class="hero-title-row">
+        <h1 id="about-title">{{ profile.name }}</h1>
+        <div class="hero-certification-badges" aria-label="Professional certifications">
+          @for (certification of heroCertificationBadges; track certification.id) {
+            @if (certification.badgeImageUrl; as badgeImageUrl) {
+              <img
+                [src]="badgeImageUrl"
+                [alt]="certification.shortTitle + ' badge'"
+                [title]="certification.title"
+                decoding="async"
+              />
+            }
+          }
+        </div>
+      </div>
+      <p class="hero-role">{{ profile.role }}</p>
+      <p class="hero-summary">{{ profile.summary }}</p>
+      <a class="email-button" href="mailto:{{ profile.email }}">
+        <i class="bi bi-envelope" aria-hidden="true"></i>{{ profile.email }}
+      </a>
+    </div>
+    <div class="developer-visual" aria-label="Code, Build, Solve, Improve">
+      <span class="developer-visual__symbol" aria-hidden="true">
+        <img src="/images/code-icon.png" alt="" />
+      </span>
+    </div>
+  </section>
+
+  <section class="overview-grid" aria-label="Portfolio overview">
+    @if (currentExperience; as experience) {
+      <article class="portfolio-panel preview-panel experience-preview">
+        <h2><i class="bi bi-briefcase" aria-hidden="true"></i> EXPERIENCE</h2>
+        <h3>{{ experience.position }}</h3>
+        <p class="panel-accent">{{ experience.company }}</p>
+        <p class="meta-row">
+          <span
+            ><i class="bi bi-calendar3" aria-hidden="true"></i>{{ experience.startDate }} &ndash;
+            {{ experience.current ? 'Present' : experience.endDate }}</span
+          >
+          @if (experience.location) {
+            <span><i class="bi bi-geo-alt" aria-hidden="true"></i>{{ experience.location }}</span>
+          }
+          @if (experience.current) {
+            <span class="current-badge">Current role</span>
+          }
+        </p>
+        <p class="preview-summary">{{ experience.summary }}</p>
+        <a routerLink="/experience" class="panel-link"
+          >View full experience <i class="bi bi-arrow-right"></i
+        ></a>
+      </article>
+    }
+
+    <article class="portfolio-panel preview-panel certification-preview">
+      <h2><i class="bi bi-award" aria-hidden="true"></i> CERTIFICATIONS</h2>
+      <div class="certification-text-preview">
+        @for (certification of certifications; track certification.id) {
+          <div class="certification-text-preview__item">
+            <span class="certification-text-preview__icon" aria-hidden="true">
+              <i class="bi {{ certification.issuerIcon }}"></i>
+            </span>
+            <div>
+              <div class="certification-text-preview__title">
+                <h3 [title]="certification.title">{{ certification.title }}</h3>
+                @if (certification.credentialUrl) {
+                  <a
+                    [href]="certification.credentialUrl"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    [attr.aria-label]="'Verify ' + certification.shortTitle"
+                    title="View credential"
+                  >
+                    <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i>
+                  </a>
+                }
+              </div>
+              <p>
+                {{ certification.issuer }}
+                @if (certification.issuedDate) {
+                  <span>&bull; {{ certification.issuedDate }}</span>
+                }
+              </p>
+            </div>
+          </div>
+        }
+      </div>
+      <a routerLink="/certifications" class="panel-link"
+        >View all certifications <i class="bi bi-arrow-right"></i
+      ></a>
+    </article>
+
+    <article class="portfolio-panel preview-panel training-preview">
+      <h2><i class="bi bi-book" aria-hidden="true"></i> COMPLETED TRAINING</h2>
+      @if (completedTraining.length) {
+        <div class="completed-course-preview">
+          @for (item of completedTraining.slice(0, 6); track item.id) {
+            <div class="course-preview-item">
+              <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+              <span>{{ item.title }}</span>
+              <small>{{ item.provider }}</small>
+            </div>
+          }
+        </div>
+      } @else {
+        <div class="pending-content">
+          <span><i class="bi bi-journal-check" aria-hidden="true"></i></span>
+          <div>
+            <h3>Details coming soon</h3>
+            <p>Completed trainings and courses will be added here.</p>
+          </div>
+        </div>
+      }
+      <a routerLink="/training" class="panel-link"
+        >View all training <i class="bi bi-arrow-right"></i
+      ></a>
+    </article>
+  </section>
+
+  <section class="projects-education-grid" aria-label="Featured projects and education">
+    <article class="portfolio-panel featured-projects-panel">
+      <h2><i class="bi bi-box" aria-hidden="true"></i> FEATURED PROJECTS</h2>
+      <div class="featured-project-grid">
+        @for (project of featuredProjects; track project.id) {
+          <app-project-card [project]="project" [compact]="true" />
+        }
+      </div>
+      <a routerLink="/projects" class="panel-link panel-link--end"
+        >View all projects <i class="bi bi-arrow-right"></i
+      ></a>
+    </article>
+
+    @if (highestEducation; as education) {
+      <article class="portfolio-panel education-preview">
+        <h2><i class="bi bi-mortarboard" aria-hidden="true"></i> EDUCATION</h2>
+        <h3>{{ education.degree || education.strand || education.level }}</h3>
+        <p class="panel-accent">{{ education.school }}</p>
+        <p class="meta-row">
+          <span
+            ><i class="bi bi-calendar3" aria-hidden="true"></i>{{ education.startDate }} &ndash;
+            {{ education.endDate }}</span
+          >
+          @if (education.location) {
+            <span><i class="bi bi-geo-alt" aria-hidden="true"></i>{{ education.location }}</span>
+          }
+        </p>
+        @for (honor of (education.honors ?? []).slice(0, 1); track honor) {
+          <span class="honor-badge">{{ honor }}</span>
+        }
+        <a routerLink="/education" class="panel-link"
+          >View full education <i class="bi bi-arrow-right"></i
+        ></a>
+      </article>
+    }
+  </section>
+</div>

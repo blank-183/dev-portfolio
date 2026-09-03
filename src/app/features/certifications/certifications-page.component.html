@@ -1,0 +1,80 @@
+<div class="detail-page certifications-page">
+  <header class="page-intro">
+    <p class="code-comment">// Professional Credentials</p>
+    <h1>Certifications</h1>
+    <p>Professional credentials and assessed skills across cloud, security, and databases.</p>
+  </header>
+
+  <div class="summary-strip" aria-label="Certification summary">
+    <div>
+      <i class="bi bi-patch-check" aria-hidden="true"></i
+      ><strong>{{ certifications.length }}</strong
+      ><span>Certifications</span>
+    </div>
+    <div>
+      <i class="bi bi-bank" aria-hidden="true"></i><strong>{{ issuerCount }}</strong
+      ><span>Issuers</span>
+    </div>
+    <div class="summary-strip__tags">
+      @for (domain of domains; track domain) {
+        <span>{{ domain }}</span>
+      }
+    </div>
+  </div>
+
+  <section class="credential-grid" aria-label="Professional certifications">
+    @for (certification of certifications; track certification.id) {
+      <article class="credential-card">
+        @if (certification.badgeImageUrl; as badgeImageUrl) {
+          <img
+            class="certification-badge-image"
+            [src]="badgeImageUrl"
+            [alt]="certification.shortTitle + ' badge'"
+            loading="lazy"
+            decoding="async"
+          />
+        } @else {
+          <span class="credential-issuer-mark" [title]="certification.issuer" aria-hidden="true">
+            <i class="bi {{ certification.issuerIcon }}"></i>
+            <small>{{ certification.issuer }}</small>
+          </span>
+        }
+        <div class="credential-card__body">
+          <span class="credential-type">{{ certification.type }}</span>
+          <h2>{{ certification.title }}</h2>
+          <p class="credential-card__issuer">{{ certification.issuer }}</p>
+          <p class="credential-card__description">{{ certification.description }}</p>
+          <div class="badge-list" aria-label="Credential domains">
+            @for (skill of certification.skills; track skill) {
+              <span>{{ skill }}</span>
+            }
+          </div>
+          @if (certification.credentialId) {
+            <p class="credential-id"><span>Credential ID</span> {{ certification.credentialId }}</p>
+          }
+          <footer class="credential-card__footer">
+            @if (certification.credentialUrl) {
+              <a
+                [href]="certification.credentialUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="panel-link"
+              >
+                View credential <i class="bi bi-box-arrow-up-right"></i>
+              </a>
+            }
+            @if (certification.issuedDate) {
+              <span class="credential-card__date">
+                <i class="bi bi-calendar3" aria-hidden="true"></i>
+                Issued {{ certification.issuedDate }}
+                @if (certification.expiresDate) {
+                  &bull; Expires {{ certification.expiresDate }}
+                }
+              </span>
+            }
+          </footer>
+        </div>
+      </article>
+    }
+  </section>
+</div>

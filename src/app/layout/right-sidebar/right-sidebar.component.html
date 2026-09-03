@@ -1,0 +1,109 @@
+<aside class="right-sidebar" aria-label="Portfolio information">
+  <section class="info-panel quick-facts-panel" aria-labelledby="quick-facts-title">
+    <h2 id="quick-facts-title"><i class="bi bi-info-circle" aria-hidden="true"></i> QUICK FACTS</h2>
+    <dl class="fact-list">
+      <div>
+        <dt><i class="bi bi-person" aria-hidden="true"></i>Role</dt>
+        <dd>{{ profile.role }}</dd>
+      </div>
+      <div>
+        <dt><i class="bi bi-bullseye" aria-hidden="true"></i>Focus</dt>
+        <dd>
+          @for (item of profile.focus; track item) {
+            <span>{{ item }}</span>
+          }
+        </dd>
+      </div>
+      <div>
+        <dt><i class="bi bi-briefcase" aria-hidden="true"></i>Experience</dt>
+        <dd>{{ profile.experience }}</dd>
+      </div>
+      <div>
+        <dt><i class="bi bi-geo-alt" aria-hidden="true"></i>Location</dt>
+        <dd>{{ profile.location }}</dd>
+      </div>
+      <div>
+        <dt><i class="bi bi-clock" aria-hidden="true"></i>Availability</dt>
+        <dd>{{ profile.availability }}</dd>
+      </div>
+    </dl>
+  </section>
+
+  <section class="info-panel tech-panel" aria-labelledby="tech-stack-title">
+    <h2 id="tech-stack-title"><i class="bi bi-code-slash" aria-hidden="true"></i> TECH STACK</h2>
+    @for (group of techStack; track group.category) {
+      <div class="tech-group">
+        <h3>{{ group.category }}</h3>
+        <p>
+          @for (technology of group.technologies; track technology; let last = $last) {
+            <span>{{ technology }}</span>
+            @if (!last) {
+              <b aria-hidden="true">&bull;</b>
+            }
+          }
+        </p>
+      </div>
+    }
+  </section>
+
+  <section class="info-panel awards-panel" aria-labelledby="awards-title">
+    <h2 id="awards-title">
+      <i class="bi bi-trophy" aria-hidden="true"></i> AWARDS &amp; RECOGNITION
+    </h2>
+    <div class="award-carousel" aria-live="polite">
+      @if (awardPageCount > 1) {
+        <button
+          type="button"
+          class="award-carousel__arrow award-carousel__arrow--previous"
+          aria-label="Show previous awards"
+          (click)="previousAwards()"
+        >
+          <i class="bi bi-chevron-left" aria-hidden="true"></i>
+        </button>
+      }
+      <div class="award-carousel__items">
+        @for (award of visibleAwards(); track award.id) {
+          <article class="award-item">
+            <span class="award-icon"><i class="bi {{ award.icon }}" aria-hidden="true"></i></span>
+            <div>
+              <h3>{{ award.title }}</h3>
+              <p>{{ award.description }}</p>
+              <small>
+                {{ award.organization }}
+                @if (award.issuedDate) {
+                  <b>&bull;</b> {{ award.issuedDate }}
+                }
+              </small>
+            </div>
+          </article>
+        }
+      </div>
+      @if (awardPageCount > 1) {
+        <button
+          type="button"
+          class="award-carousel__arrow award-carousel__arrow--next"
+          aria-label="Show next awards"
+          (click)="nextAwards()"
+        >
+          <i class="bi bi-chevron-right" aria-hidden="true"></i>
+        </button>
+      }
+    </div>
+    @if (awardPageCount > 1) {
+      <div class="award-carousel__pagination" aria-label="Award pages">
+        <div class="award-carousel__dots">
+          @for (page of awardPageIndexes; track page) {
+            <button
+              type="button"
+              [class.active]="awardPage() === page"
+              [attr.aria-current]="awardPage() === page ? 'page' : null"
+              [attr.aria-label]="'Show award page ' + (page + 1)"
+              (click)="showAwardPage(page)"
+            ></button>
+          }
+        </div>
+        <span>{{ awardPage() + 1 }} / {{ awardPageCount }}</span>
+      </div>
+    }
+  </section>
+</aside>

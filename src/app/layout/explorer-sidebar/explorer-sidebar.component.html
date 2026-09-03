@@ -1,0 +1,56 @@
+<aside class="explorer-sidebar" id="portfolio-explorer" aria-label="Portfolio Explorer">
+  <div class="explorer-heading">
+    <span>EXPLORER</span>
+    <div aria-hidden="true"><i class="bi bi-plus-lg"></i><i class="bi bi-filter-left"></i></div>
+    <button
+      type="button"
+      class="explorer-close"
+      aria-label="Close Explorer"
+      (click)="dismiss.emit()"
+    >
+      <i class="bi bi-x-lg" aria-hidden="true"></i>
+    </button>
+  </div>
+
+  <div class="project-folder">
+    <i class="bi bi-chevron-down" aria-hidden="true"></i>
+    <i class="bi bi-folder2-open" aria-hidden="true"></i>
+    <span>IveePortfolio</span>
+  </div>
+
+  <nav class="explorer-files" aria-label="Portfolio sections">
+    @for (item of navItems; track item.route) {
+      <a
+        [routerLink]="item.route"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        ariaCurrentWhenActive="page"
+        (click)="navigationSelected.emit()"
+      >
+        <i class="bi {{ item.icon }}" aria-hidden="true"></i>
+        <span>{{ item.fileName }}</span>
+        <span class="active-dot" aria-hidden="true"></span>
+      </a>
+    }
+  </nav>
+
+  <div class="quick-access">
+    <h2>QUICK ACCESS</h2>
+    <nav aria-label="Contact and social links">
+      @for (link of socialLinks; track link.platform) {
+        <a
+          [href]="link.url"
+          [attr.target]="link.external ? '_blank' : null"
+          [attr.rel]="link.external ? 'noopener noreferrer' : null"
+        >
+          <i class="bi {{ link.icon }}" aria-hidden="true"></i>
+          <span>
+            {{ link.platform === 'email' ? 'Email Me' : 'View on ' + link.label }}
+          </span>
+        </a>
+      }
+    </nav>
+  </div>
+
+  <div class="explorer-settings" aria-hidden="true"><i class="bi bi-gear"></i></div>
+</aside>

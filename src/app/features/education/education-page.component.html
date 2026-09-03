@@ -1,0 +1,54 @@
+<div class="detail-page">
+  <header class="page-intro">
+    <p class="code-comment">// Academic Foundation</p>
+    <h1>Education</h1>
+    <p>My academic history and the foundations that support my software development career.</p>
+  </header>
+
+  <section class="timeline education-timeline" aria-label="Education history">
+    @for (item of education; track item.id) {
+      <article class="timeline-card education-card">
+        <span class="timeline-marker" aria-hidden="true"><i class="bi bi-mortarboard"></i></span>
+        <p class="education-level">{{ item.level }}</p>
+        <h2>{{ item.degree || (item.strand ? item.level + ' - ' + item.strand : item.level) }}</h2>
+        <p class="panel-accent">{{ item.school }}</p>
+        <p class="meta-row">
+          <span
+            ><i class="bi bi-calendar3" aria-hidden="true"></i>{{ item.startDate }} &ndash;
+            {{ item.endDate }}</span
+          >
+          @if (item.location) {
+            <span><i class="bi bi-geo-alt" aria-hidden="true"></i>{{ item.location }}</span>
+          }
+        </p>
+        @if (item.grade) {
+          <p class="education-grade"><strong>Grade:</strong> {{ item.grade }}</p>
+        }
+        <div class="badge-list education-honors">
+          @for (honor of item.honors ?? []; track honor) {
+            <span><i class="bi bi-award" aria-hidden="true"></i>{{ honor }}</span>
+          }
+        </div>
+        @if (item.skills?.length) {
+          <div class="badge-list education-skills">
+            @for (skill of item.skills; track skill) {
+              <span>{{ skill }}</span>
+            }
+          </div>
+        }
+        @if (item.thesis; as thesis) {
+          <div class="education-thesis">
+            <h3 class="detail-section-label">Thesis</h3>
+            <h4>{{ thesis.title }}</h4>
+            <p>{{ thesis.description }}</p>
+            <div class="badge-list">
+              @for (technology of thesis.technologies; track technology) {
+                <span>{{ technology }}</span>
+              }
+            </div>
+          </div>
+        }
+      </article>
+    }
+  </section>
+</div>
