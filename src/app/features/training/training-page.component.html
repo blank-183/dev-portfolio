@@ -34,15 +34,18 @@
               <i class="bi {{ item.issuerIcon }}"></i>
             </span>
           }
-          <div>
+
+          <div class="training-card__title">
             <span class="credential-type">{{ item.type }}</span>
             <h2>{{ item.title }}</h2>
             <p>{{ item.provider }}</p>
           </div>
-          <span class="completed-badge"><i class="bi bi-check-circle"></i>Completed</span>
-        </div>
 
-        <p class="training-card__description">{{ item.description }}</p>
+          <span class="completed-badge">
+            <i class="bi bi-check-circle"></i>
+            Completed
+          </span>
+        </div>
 
         <div class="badge-list" aria-label="Skills gained">
           @for (skill of item.skills; track skill) {
@@ -51,17 +54,22 @@
         </div>
 
         @if (item.credentialId) {
-          <p class="credential-id"><span>Credential ID</span> {{ item.credentialId }}</p>
+          <div class="training-card__credential">
+            <span>Credential ID</span>
+            <code>{{ item.credentialId }}</code>
+          </div>
         }
 
         <footer>
-          <small
-            ><i class="bi bi-calendar3" aria-hidden="true"></i>Completed
-            {{ item.completedDate }}</small
-          >
+          <small>
+            <i class="bi bi-calendar3" aria-hidden="true"></i>
+            Completed {{ item.completedDate }}
+          </small>
+
           @if (item.credentialUrl) {
             <a [href]="item.credentialUrl" target="_blank" rel="noopener noreferrer">
-              View credential <i class="bi bi-box-arrow-up-right"></i>
+              View credential
+              <i class="bi bi-box-arrow-up-right"></i>
             </a>
           }
         </footer>

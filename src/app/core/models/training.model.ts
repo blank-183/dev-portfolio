@@ -11,7 +11,7 @@ export interface Training {
   readonly completedDate: string;
   readonly credentialId?: string;
   readonly credentialUrl?: string;
-  readonly description: string;
+  readonly description?: string;
   readonly skills: readonly string[];
   readonly badgeImageUrl?: string;
   readonly issuerIcon: string;

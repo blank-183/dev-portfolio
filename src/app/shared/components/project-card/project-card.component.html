@@ -31,6 +31,13 @@
   <p>
     {{ compact() ? project().shortDescription || project().description : project().description }}
   </p>
+
+  @if (!compact() && project().contributions) {
+    <p>
+      <strong>Contributions:</strong>
+      {{ project().contributions }}
+    </p>
+  }
   @if (project().githubUrl || project().liveUrl) {
     <div class="project-card__links">
       @if (project().githubUrl) {

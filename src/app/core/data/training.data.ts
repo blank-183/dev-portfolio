@@ -2,6 +2,19 @@ import { Training } from '../models/training.model';
 
 export const TRAINING: readonly Training[] = [
   {
+    id: 'sql-for-data-analysis',
+    title: 'SQL for Data Analysis: Advanced SQL Querying Techniques',
+    provider: 'Udemy',
+    type: 'Course',
+    status: 'completed',
+    completedDate: 'September 2026',
+    credentialId: 'UC-ab436c73-ae1a-4f7f-bb92-fcc6f9e51758',
+    credentialUrl: 'https://www.udemy.com/certificate/UC-ab436c73-ae1a-4f7f-bb92-fcc6f9e51758/',
+    skills: ['Window Functions', 'CTE', 'Subqueries', 'Data Analysis', 'SQL'],
+    issuerIcon: 'bi-journal-code',
+    displayOrder: 1,
+  },
+  {
     id: 'querying-sql-server-transact-sql',
     title: '70-461_761: Querying Microsoft SQL Server with Transact-SQL',
     provider: 'Udemy',
@@ -10,10 +23,9 @@ export const TRAINING: readonly Training[] = [
     completedDate: 'October 2024',
     credentialId: 'UC-5864a760-648c-4e6f-a719-10b97af78716',
     credentialUrl: 'https://www.udemy.com/certificate/UC-5864a760-648c-4e6f-a719-10b97af78716/',
-    description: 'Completed training in querying Microsoft SQL Server using Transact-SQL.',
     skills: ['Transact-SQL (T-SQL)', 'Microsoft SQL Server'],
     issuerIcon: 'bi-journal-code',
-    displayOrder: 1,
+    displayOrder: 2,
   },
   {
     id: 'rxjs-7-observables',
@@ -24,10 +36,9 @@ export const TRAINING: readonly Training[] = [
     completedDate: 'September 2024',
     credentialId: 'UC-9232523f-88b8-4f75-b6d1-666502bf22ae',
     credentialUrl: 'https://www.udemy.com/certificate/UC-9232523f-88b8-4f75-b6d1-666502bf22ae/',
-    description: 'Completed focused training in RxJS 7 and observable-based reactive programming.',
     skills: ['RxJS', 'Observables', 'Reactive Programming'],
     issuerIcon: 'bi-journal-code',
-    displayOrder: 2,
+    displayOrder: 3,
   },
   {
     id: 'ngrx-complete-guide-angular-18',
@@ -38,10 +49,9 @@ export const TRAINING: readonly Training[] = [
     completedDate: 'August 2024',
     credentialId: 'UC-8d066f04-0c82-4242-9294-6da088f03eba',
     credentialUrl: 'https://www.udemy.com/certificate/UC-8d066f04-0c82-4242-9294-6da088f03eba/',
-    description: 'Completed training in Angular state management using NgRx and NgRx Data.',
     skills: ['Angular', 'NgRx', 'State Management'],
     issuerIcon: 'bi-journal-code',
-    displayOrder: 3,
+    displayOrder: 4,
   },
   {
     id: 'angular-complete-guide-2024',
@@ -52,10 +62,9 @@ export const TRAINING: readonly Training[] = [
     completedDate: 'July 2024',
     credentialId: 'UC-724975ac-416a-4250-a5cb-4bb98a31c588',
     credentialUrl: 'https://www.udemy.com/certificate/UC-724975ac-416a-4250-a5cb-4bb98a31c588/',
-    description: 'Completed comprehensive Angular application development training.',
     skills: ['Angular', 'TypeScript', 'Web Development'],
     issuerIcon: 'bi-journal-code',
-    displayOrder: 4,
+    displayOrder: 5,
   },
   {
     id: 'customized-dotnet-bootcamp',
@@ -64,11 +73,9 @@ export const TRAINING: readonly Training[] = [
     type: 'Bootcamp',
     status: 'completed',
     completedDate: 'April 2023',
-    description:
-      'Completed intensive application development training in the Microsoft .NET stack.',
     skills: ['C#', '.NET Framework', 'ASP.NET Core MVC', 'Entity Framework Core', 'SQL Server'],
     issuerIcon: 'bi-building',
-    displayOrder: 5,
+    displayOrder: 6,
   },
   {
     id: 'python-for-everybody-specialization',
@@ -79,10 +86,8 @@ export const TRAINING: readonly Training[] = [
     completedDate: 'September 2022',
     credentialId: 'DWNXPQPY7PSA',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/specialization/certificate/DVNXPQPY7PSA',
-    description:
-      'Completed a multi-course specialization covering programming and data handling with Python.',
     skills: ['Python', 'Data Structures', 'Web Data'],
     issuerIcon: 'bi-mortarboard',
-    displayOrder: 6,
+    displayOrder: 7,
   },
 ];

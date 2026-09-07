@@ -8,7 +8,7 @@ export const PROJECTS: readonly Project[] = [
       'Developed a proof-of-concept chatbot API that provides domain-grounded responses and evaluates AI-assisted access to specialized knowledge.',
     shortDescription:
       'Built a proof-of-concept API to explore AI-assisted access to specialized knowledge.',
-    technologies: ['REST API', 'RAG', 'LLM'],
+    technologies: ['Python', 'REST API', 'RAG', 'LLM'],
     associatedWith: 'Confidential Professional Work',
     confidential: true,
     featured: true,
@@ -22,11 +22,91 @@ export const PROJECTS: readonly Project[] = [
       'Implemented an event-driven workflow that detects newly added content and automatically refreshes a search index, improving processing reliability and reducing manual intervention.',
     shortDescription:
       'Built an event-driven backend workflow that automates data-processing updates and improves operational reliability.',
-    technologies: ['AWS', 'Event-Driven', 'Serverless', 'Automation'],
+    technologies: ['Python', 'AWS', 'Event-Driven', 'Serverless'],
     associatedWith: 'Confidential Professional Work',
     confidential: true,
     featured: true,
     displayOrder: 2,
+  },
+  {
+    id: 'enterprise-financial-procurement-integration',
+    title: 'Enterprise Financial & Procurement Integration',
+    shortTitle: 'Enterprise Financial & Procurement Integration',
+    description:
+      'Integration of two enterprise systems to automate the exchange of procurement and financial transaction data, reducing the need for manual transaction creation.',
+    shortDescription:
+      'Integration of two enterprise systems to automate the exchange of procurement and financial transaction data.',
+    contributions:
+      'Developed APIs for receiving and updating financial transactions and integrated an external API for status synchronization. Implemented service health checks before API calls.',
+    technologies: ['ASP.NET Core', 'Dapper', 'REST API', 'SQL Server'],
+    associatedWith: 'Confidential Professional Work',
+    confidential: true,
+    featured: false,
+    displayOrder: 3,
+  },
+  {
+    id: 'automated-financial-reconciliation-system',
+    title: 'Automated Financial Reconciliation System',
+    shortTitle: 'Automated Financial Reconciliation System',
+    description:
+      'An automated reconciliation system that compares collection records from multiple internal data sources against external financial reports and provides consolidated reconciliation results.',
+    shortDescription:
+      'An automated reconciliation system that compares collection records from multiple internal data sources against external financial reports.',
+    contributions:
+      'Took ownership of the application during testing and reworked major parts of its reconciliation logic. Implemented backend and UI changes and maintained scheduled data-processing tasks.',
+    technologies: ['ASP.NET MVC', 'Entity Framework', 'HangFire', 'Windows Task Scheduler', 'GCP Gmail API', 'SQL Server', 'Vue.js', 'Bootstrap'],
+    associatedWith: 'Confidential Professional Work',
+    confidential: true,
+    featured: false,
+    displayOrder: 4,
+  },
+  {
+    id: 'administrative-workflow-automation',
+    title: 'Administrative Workflow Automation System',
+    shortTitle: 'Administrative Workflow Automation System',
+    description:
+      'A web application that automates administrative processes previously performed through manual special instructions.',
+    shortDescription:
+      'A web application that automates administrative processes previously performed through manual special instructions.',
+    contributions:
+      'Developed backend functionality for adding and removing records through both single and bulk operations, including Excel file processing and validation.',
+    technologies: ['ASP.NET Core', 'Dapper', 'REST API', 'SQL Server'],
+    associatedWith: 'Confidential Professional Work',
+    confidential: true,
+    featured: false,
+    displayOrder: 5,
+  },
+  {
+    id: 'centralized-user-access-management',
+    title: 'Centralized User Access Management System',
+    shortTitle: 'Centralized User Access Management System',
+    description:
+      'A centralized web application for managing user access, roles, permissions, and system activities across multiple enterprise applications',
+    shortDescription:
+      'A centralized web application for managing user access, roles, permissions, and system activities across multiple enterprise applications.',
+    contributions:
+      'Worked full-stack on login integration, dashboard, and system maintenance modules. Integrated Angular components with backend APIs and implemented role and access-management features.',
+    technologies: ['ASP.NET Core', 'Dapper', 'REST API', 'SQL Server', 'Angular', 'Bootstrap'],
+    associatedWith: 'Confidential Professional Work',
+    confidential: true,
+    featured: false,
+    displayOrder: 6,
+  },
+  {
+    id: 'enterprise-transaction',
+    title: 'Enterprise Transaction & Document Services',
+    shortTitle: 'Enterprise Transaction & Document Services',
+    description:
+      'A system that streamlines the process of requesting title information from different Registries of Deeds for partner institutions.',
+    shortDescription:
+      'A system that streamlines the process of requesting title information from different Registries of Deeds for partner institutions.',
+    contributions:
+      'Developed APIs for retrieving transactions and master data, saving transaction records, and generating title-related reports.',
+    technologies: ['ASP.NET Core', 'Dapper', 'REST API', 'SQL Server'],
+    associatedWith: 'Confidential Professional Work',
+    confidential: true,
+    featured: false,
+    displayOrder: 7,
   },
   {
     id: 'medical-prescription-recognition',
@@ -39,7 +119,7 @@ export const PROJECTS: readonly Project[] = [
     dateRange: 'August 2021 - April 2022',
     associatedWith: 'Bicol University',
     featured: false,
-    displayOrder: 3,
+    displayOrder: 8,
   },
   {
     id: 'buceils-online-voting-system',
@@ -50,7 +130,7 @@ export const PROJECTS: readonly Project[] = [
     dateRange: 'August 2020 - May 2021',
     associatedWith: 'Bicol University',
     featured: false,
-    displayOrder: 4,
+    displayOrder: 9,
   },
   {
     id: 'answer-sheet-checker',
@@ -60,7 +140,7 @@ export const PROJECTS: readonly Project[] = [
     technologies: ['Python', 'OpenCV', 'Computer Vision', 'Image Processing'],
     associatedWith: 'Bicol University',
     featured: false,
-    displayOrder: 5,
+    displayOrder: 10,
   },
   {
     id: 'coin-counter',
@@ -70,7 +150,7 @@ export const PROJECTS: readonly Project[] = [
     technologies: ['Python', 'OpenCV', 'Computer Vision', 'Object Detection'],
     associatedWith: 'Bicol University',
     featured: false,
-    displayOrder: 6,
+    displayOrder: 11,
   },
   {
     id: 'inventory-management-system',
@@ -80,6 +160,6 @@ export const PROJECTS: readonly Project[] = [
     technologies: ['Java', 'Inventory Management', 'CRUD'],
     associatedWith: 'Bicol University',
     featured: false,
-    displayOrder: 7,
+    displayOrder: 12,
   },
 ];

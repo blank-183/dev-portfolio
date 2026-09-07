@@ -13,7 +13,7 @@ export const CERTIFICATIONS: readonly Certification[] = [
     credentialUrl: 'https://www.hackerrank.com/certificates/c63081cc69d6',
     description:
       'Demonstrates advanced SQL proficiency through a practical HackerRank skills assessment.',
-    skills: ['SQL', 'Advanced Queries', 'Relational Databases'],
+    skills: ['T-SQL', 'CTE', 'Pivot Tables'],
     issuerIcon: 'bi-code-square',
     displayOrder: 1,
   },
@@ -26,6 +26,8 @@ export const CERTIFICATIONS: readonly Certification[] = [
     type: 'Professional Certification',
     issuedDate: 'July 2026',
     expiresDate: 'July 2029',
+    credentialId: 'f81ddc2f-b8fb-4a44-8c32-7e3d9f6c1164',
+    credentialUrl: 'https://www.credly.com/badges/f81ddc2f-b8fb-4a44-8c32-7e3d9f6c1164',
     description:
       'Validates the ability to design secure, resilient, high-performing, and cost-optimized AWS solutions.',
     skills: ['Cloud', 'Architecture', 'AWS'],
@@ -35,13 +37,15 @@ export const CERTIFICATIONS: readonly Certification[] = [
   },
   {
     id: 'comptia-security-plus',
-    title: 'CompTIA Security+ ce Certification (SY0-701)',
+    title: 'CompTIA Security+ Certification (SY0-701)',
     shortTitle: 'CompTIA Security+',
     code: 'SY0-701',
     issuer: 'CompTIA',
     type: 'Professional Certification',
     issuedDate: 'September 2025',
     expiresDate: 'September 2028',
+    credentialId: 'e83c2111-6cc6-4ff9-9ad1-da1ff7fd363e',
+    credentialUrl: 'https://www.credly.com/badges/e83c2111-6cc6-4ff9-9ad1-da1ff7fd363e',
     description:
       'Validates core cybersecurity knowledge and the practical skills needed to secure systems and networks.',
     skills: ['Web Application Security', 'Secure Software Development', 'Security'],
@@ -60,7 +64,7 @@ export const CERTIFICATIONS: readonly Certification[] = [
     credentialId: 'fa3ef627ba20',
     credentialUrl: 'https://www.hackerrank.com/certificates/fa3ef627ba20',
     description: 'Demonstrates practical SQL competency through a HackerRank skills assessment.',
-    skills: ['SQL', 'Microsoft SQL Server'],
+    skills: ['T-SQL', 'Joins'],
     issuerIcon: 'bi-code-square',
     displayOrder: 4,
   },

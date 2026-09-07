@@ -967,6 +967,18 @@ app-line-number-gutter {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
+  align-items: stretch;
+}
+
+.featured-project-grid app-project-card,
+.project-page-grid app-project-card {
+  display: block;
+  height: 100%;
+}
+
+.featured-project-grid .project-card,
+.project-page-grid .project-card {
+  height: 100%;
 }
 
 .panel-link--end {
@@ -3513,7 +3525,7 @@ app-right-sidebar {
 .training-card {
   display: flex;
   min-width: 0;
-  min-height: 300px;
+  min-height: 260px;
   padding: 20px;
   flex-direction: column;
   border: 1px solid $border;
@@ -3529,7 +3541,7 @@ app-right-sidebar {
   gap: 12px;
 
   h2 {
-    margin: 0 0 4px;
+    margin: 0 0 3px;
     font-size: 16px;
     line-height: 1.35;
   }
@@ -3542,6 +3554,10 @@ app-right-sidebar {
   }
 }
 
+.training-card__title {
+  min-width: 0;
+}
+
 .issuer-visual {
   width: 48px;
   height: 48px;
@@ -3552,11 +3568,59 @@ app-right-sidebar {
   object-fit: contain;
 }
 
-.training-card__description {
-  margin: 18px 0 14px;
-  color: $text-secondary;
-  font-size: 12.5px;
-  line-height: 1.6;
+.credential-type {
+  display: block;
+  margin-bottom: 4px;
+  color: $text-muted;
+  font-size: 9px;
+  font-weight: 750;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+}
+
+.training-card .badge-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 16px;
+  gap: 6px;
+}
+
+.training-card .badge-list > span {
+  min-height: 24px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: $blue-50;
+  color: $blue-700;
+  font-size: 9.5px;
+  font-weight: 700;
+}
+
+.training-card__credential {
+  display: flex;
+  min-width: 0;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid $border;
+  flex-direction: column;
+  gap: 4px;
+
+  span {
+    color: $text-muted;
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  code {
+    overflow: hidden;
+    color: $text-secondary;
+    font-family: 'JetBrains Mono', 'SFMono-Regular', Consolas, monospace;
+    font-size: 9px;
+    line-height: 1.4;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 }
 
 .training-card footer {

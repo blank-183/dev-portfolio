@@ -4,6 +4,7 @@ export interface Project {
   readonly shortTitle?: string;
   readonly description: string;
   readonly shortDescription?: string;
+  readonly contributions?: string;
   readonly technologies: readonly string[];
   readonly dateRange?: string;
   readonly associatedWith?: string;
